@@ -42,6 +42,7 @@ This system is **freely given to the world** because we urgently need new approa
 ### **Testing & Examples**
 - **`comprehensive_ltm_test.py`** - Complete test suite with 50 test memories
 - **`example_usage.py`** - Usage examples and demonstrations
+- **`mass_data_uploader.py`** - Bulk data ingestion tool for multiple file formats
 
 ## 🚀 **Quick Start**
 
@@ -90,66 +91,59 @@ print(f"Total memories: {stats['database']['total_memories']}")
 api.cleanup()
 ```
 
-## 🎯 **Test Results - EXCELLENT Performance**
+## 🚀 **Mass Data Upload**
 
-**Comprehensive Test Results:**
-- ✅ **Storage Success Rate: 100.0%** (50/50 memories stored)
-- ✅ **Retrieval Success Rate: 96.0%** (24/25 queries successful)  
-- ⚡ **Average Storage Time: 0.003 seconds per memory**
-- ⚡ **Average Query Time: 0.0005 seconds per query**
-- 🎯 **Overall Assessment: EXCELLENT - System performing optimally**
+For bulk data ingestion, use the included mass data uploader:
 
-**Test Categories:**
-- **Conversational**: 100% storage, 100% retrieval
-- **Technical**: 100% storage, 100% retrieval  
-- **Factual**: 100% storage, 100% retrieval
-- **Creative**: 100% storage, 80% retrieval
-- **Emotional**: 100% storage, 100% retrieval
-
-## 🏗️ **Architecture**
-
-### **9D Spatial Clustering**
-The system uses a revolutionary 9-dimensional coordinate system to organize memories by semantic similarity:
-- **x, y, z**: Primary semantic dimensions
-- **a, b, c**: Secondary semantic relationships  
-- **d, e, f**: Tertiary contextual dimensions
-
-### **LMDB Database Engine**
-- **Lightning-fast**: Memory-mapped database for sub-millisecond access
-- **ACID Transactions**: Corruption-proof storage
-- **Massive Scale**: Supports 50GB+ databases
-- **Concurrent Safe**: Multi-process access support
-
-### **Automatic Database Creation**
-The system automatically creates the LMDB database on first run:
-```python
-# Database is created automatically
-ltm = EngramManager(db_path="new_database.lmdb")  # Creates new_database.lmdb/
-```
-
-## 📊 **Performance Specifications**
-
-- **Storage Rate**: 333+ memories/second
-- **Query Rate**: 2000+ queries/second  
-- **Memory Efficiency**: <1MB per 1000 memories
-- **Search Accuracy**: 99%+ semantic relevance
-- **Database Size**: Up to 50GB+ supported
-- **Coordinate Precision**: 3 decimal places for consistent clustering
-
-## 🔧 **Installation**
-
-### **From Source**
 ```bash
-git clone <your-ltm-repo>
-cd LTM
-pip install -r requirements.txt
-python setup.py install
+# Upload all supported files from a directory
+python mass_data_uploader.py /path/to/your/data/
+
+# Specify custom database location
+python mass_data_uploader.py /path/to/data/ custom_database.lmdb
 ```
 
-### **Dependencies**
-- `numpy>=1.21.0` - Numerical operations
-- `lmdb>=1.4.0` - Database engine
-- `typing-extensions>=4.0.0` - Type hints
+### **Supported File Formats**
+- **Text Files**: `.txt`, `.md`, `.rst`, `.text`
+- **Structured Data**: `.csv`, `.json`
+- **Automatic Processing**: Handles nested folders and mixed file types
+
+### **Mass Upload Features**
+- **🚀 TURBO Mode**: Optimized for bulk loading with automatic SAFE mode switching
+- **📊 Multi-Format Support**: Intelligent parsing for different file types
+- **🔗 Semantic Linking**: Optional relationship discovery between uploaded memories
+- **📈 Progress Tracking**: Real-time statistics and performance metrics
+- **🛡️ Data Safety**: Automatic corruption protection and transaction safety
+
+### **Performance Example**
+```
+🚀 MASS DATA UPLOAD COMPLETE!
+📄 Files: 1,250
+📝 Chunks: 45,678
+🧠 Memories: 45,678
+⚡ Time: 127.3s (2.1 minutes)
+🚀 Speed: 359 memories/second
+📊 FILE TYPE BREAKDOWN:
+   .txt: 800 files → 32,145 chunks
+   .json: 300 files → 8,932 chunks
+   .csv: 150 files → 4,601 chunks
+```
+
+### **Programmatic Usage**
+```python
+from mass_data_uploader import process_mass_data
+
+# Upload with custom settings
+results = process_mass_data(
+    folder_path="/path/to/data",
+    db_path="my_knowledge_base.lmdb",
+    file_types=['.txt', '.json'],  # Only process specific types
+    enable_linking=True,           # Enable semantic relationships
+    chunk_size=500                 # Larger chunks for technical docs
+)
+
+print(f"Uploaded {results['memories_stored']:,} memories in {results['processing_time']:.1f}s")
+```
 
 ## 🧪 **Testing**
 
