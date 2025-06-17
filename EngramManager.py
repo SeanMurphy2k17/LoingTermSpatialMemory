@@ -21,6 +21,7 @@ from typing import Dict, List, Optional
 from SpatialValenceToCoordGeneration import SpatialValenceToCoordGeneration
 from EnhancedDBManager import EnhancedDBManager
 from SemanticLinking_Manager_V2 import SemanticLinking_Manager_V2
+from EnhancedSpatialValenceProcessor import EnhancedSpatialValenceToCoordGeneration, SemanticDepth
 
 class EngramManager:
     """
@@ -43,12 +44,12 @@ class EngramManager:
             print("🧠" * 30)
             print("🧠 ENGRAM MANAGER V2 - CLEAN SYSTEM 🧠")
             print("🧠" * 30)
-            print("🚀 Loading LEAN components...")
+            print("🚀 Loading LEAN components with DEEP semantic analysis...")
         
-        # Initialize coordinate generation system
-        self.coord_system = SpatialValenceToCoordGeneration()
+        # Initialize enhanced coordinate generation system with DEEP mode
+        self.coord_system = EnhancedSpatialValenceToCoordGeneration(SemanticDepth.DEEP)
         if verbose:
-            print("✅ [1/3] Coordinate system ready (NO LLM!)")
+            print("✅ [1/3] Enhanced coordinate system ready with DEEP mode (Maximum consistency!)")
         
         # Initialize database manager
         self.db_manager = EnhancedDBManager(

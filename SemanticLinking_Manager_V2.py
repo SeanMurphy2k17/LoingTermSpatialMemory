@@ -379,11 +379,11 @@ class SemanticLinking_Manager_V2:
 if __name__ == "__main__":
     print("🔗 Testing Semantic Linking Manager V2")
     
-    # Import V2 system
-    from SpatialValenceToCoordGeneration import SpatialValenceToCoordGeneration
+    # Import enhanced V2 system with DEEP mode
+    from EnhancedSpatialValenceProcessor import EnhancedSpatialValenceToCoordGeneration, SemanticDepth
     
-    # Initialize systems
-    coord_processor = SpatialValenceToCoordGeneration()
+    # Initialize systems with DEEP mode for maximum consistency
+    coord_processor = EnhancedSpatialValenceToCoordGeneration(SemanticDepth.DEEP)
     linker = SemanticLinking_Manager_V2(verbose=True)
     
     # Test memories
@@ -400,7 +400,7 @@ if __name__ == "__main__":
         "The team plans to create something amazing next week"
     ]
     
-    print(f"\n⚡ Processing {len(test_texts)} memories with linking...")
+    print(f"\n⚡ Processing {len(test_texts)} memories with enhanced DEEP linking...")
     
     start_time = time.time()
     
